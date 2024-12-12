@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  background: linear-gradient(45deg, rgba(184,0,255,1), rgba(0, 140, 255,1) 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+#b {
+  background-color: #00aaff;
+  transition: all;
+  transform-style: ease-in-out;
+  transition-duration: 500ms;
+}
+
+#b:hover {
+  background-color: #0077ff;
+  scale: 110%;
+}
