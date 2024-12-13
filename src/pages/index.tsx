@@ -10,7 +10,8 @@ export default function Home() {
 
   return (
     <div className="h-screen font-[family-name:var(--font-geist-sans)]">
-      <div id="header" className="flex justify-between p-6 bg-white text-black">
+      <div id="bg"></div>
+      <div id="header" className="flex justify-between p-6 bg-white text-black z-0">
         <a className="relative mr-5 flex-none text-4xl font-bold top-1" href="/">Cardano SafeTx</a>
         <div className="flex gap-5 place-self-end text-xl">
           <a className="p-3">About</a>
@@ -28,7 +29,7 @@ export default function Home() {
           <button id="b" className="px-2 text-white font-bold rounded-xl w-36 h-14 text-xl" onClick={route_login}>Get Started</button>
         </div>
         <div className="mx-5 h-[32rem] w-[32rem] text-wrap">
-          <Image src="/cardano.webp" alt="cardano" width={512} height={512} className="relative rounded-full border-8 inset-0 left-52"/>
+          <Image src="/cardano.webp" alt="cardano" width={512} height={512} className="relative rounded-full border-8 inset-0 left-52" />
         </div>
       </div>
     </div>

@@ -148,6 +148,7 @@ export default function Login() {
   // User Interface
   return (
     <div className="h-screen font-[family-name:var(--font-geist-sans)]">
+      <div id="bg"></div>
       <div id="header" className="flex justify-between p-6 bg-white text-black">
         <a className="relative mr-5 flex-none text-4xl font-bold top-1" href="/">Cardano SafeTx</a>
         <div className="flex gap-5 place-self-end text-xl">
