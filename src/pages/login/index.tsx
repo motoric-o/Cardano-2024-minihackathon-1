@@ -149,73 +149,72 @@ export default function Login() {
   return (
     <div className="h-screen font-[family-name:var(--font-geist-sans)]">
       <div id="bg"></div>
-      <div id="header" className="flex justify-between p-6 bg-white text-black">
+      <div id="header" className="flex justify-between p-10 px-16 text-white z-0">
         <a className="relative mr-5 flex-none text-4xl font-bold top-1" href="/">Cardano SafeTx</a>
         <div className="flex gap-5 place-self-end text-xl">
           <a className="p-3">About</a>
           <button id="b" className="relative text-white font-bold rounded-xl w-32 h-10 top-[0.4rem]" onClick={route_login}>Log In</button>
         </div>
       </div>
-      <div className="border border-white rounded-2xl w-96 p-4 z-10 mx-auto">
-        {connected ? (
-          <p className="text-center h-10 text-green-500 mb-3">
-            Wallet connected
-          </p>
-        ) : (
-          <p className="text-center h-10 mb-3 text-xl font-black">
-            Get Started!
-          </p>
-        )}
 
-        {/* Komponen Cardano Wallet */}
-        <div className="flex justify-center item-center mb-2 scale-150">
-          <CardanoWallet />
+      <div id="container1" className="absolute mx-auto inset-0 px-28 top-1/4 w-11/12 h-[48rem] grid grid-cols-2">
+        <div className="flex-row pt-40">
+          <div className="text-7xl text-white font-black mb-3"> Get Started!</div>
+          <div className="pl-1 text-lg text-white">Simply connect your wallet to get started!</div>
         </div>
-        {/* Notifikasi status koneksi wallet */}
-
-        {/* Notifikasi jika tidak bisa login muncul pesan teks berwarna merah */}
-
-        {buttonState ? (
-          // kondisi dimana hanya terdapat satu button login
-          <div className="grid grid-rows-2 justify-center items-center text-center mb-2">
-            <p>Or</p>
-            <button
-              type="button"
-              id="b"
-              className="text-white font-bold rounded-xl w-64 h-10"
-              onClick={loginHandler1}
-            >
-              Login By Token
-            </button>
-          </div>
-        ) : (
-          // kondisi dimana hanya terdapat lebih dari satu button login
-          <div>
-            {colorMessage ? (
-              <p className="text-center h-10 text-green-500 mt-2">{message}</p>
+        <div className="pt-32">
+          <div className="bg-white flex-col place-self-center w-3/5 h-auto rounded-xl p-4">
+            {connected ? (
+              <p className="text-center h-20 text-2xl font-black text-green-500">
+                Wallet connected!
+              </p>
             ) : (
-              <p className="text-center h-10 text-red-500 mt-2">{message}</p>
+              <p className="text-center h-20 text-2xl font-black text-black">
+                Wallet not connected.
+              </p>
             )}
 
-            {assetsList.map((asset, index) => (
-              <div key={index} className="flex justify-center items-center">
-                <button
-                  type="button"
-                  id="b"
-                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded-xl w-64 h-10 mb-4"
-                  onClick={() => loginHandler2(asset.assetName)}
-                >
-                  Login as{" "}
-                  {asset.assetName === token1
-                    ? "Silver Member"
-                    : asset.assetName === token2
-                      ? "Gold Member"
-                      : "Platinum Member"}
-                </button>
+            {/* Komponen Cardano Wallet */}
+            <div className="flex justify-center item-center mb-8 scale-[165%]">
+              <CardanoWallet label="Connect your Wallet" />
+            </div>
+            {/* Notifikasi status koneksi wallet */}
+
+            {/* Notifikasi jika tidak bisa login muncul pesan teks berwarna merah */}
+
+            {buttonState ? (
+              // kondisi dimana hanya terdapat satu button login
+              <p className="text-center h-10 text-red-500 text-xl">{message}</p>
+            ) : (
+              // kondisi dimana hanya terdapat lebih dari satu button login
+              <div>
+                {colorMessage ? (
+                  <p className="text-center h-10 text-green-500 text-xl">{message}</p>
+                ) : (
+                  <p className="text-center h-10 text-red-500 text-xl">{message}</p>
+                )}
+
+                {assetsList.map((asset, index) => (
+                  <div key={index} className="flex justify-center items-center">
+                    <button
+                      type="button"
+                      id="b"
+                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded-xl w-64 h-10 mb-4"
+                      onClick={() => loginHandler2(asset.assetName)}
+                    >
+                      Login as{" "}
+                      {asset.assetName === token1
+                        ? "Silver Member"
+                        : asset.assetName === token2
+                          ? "Gold Member"
+                          : "Platinum Member"}
+                    </button>
+                  </div>
+                ))}
               </div>
-            ))}
+            )}
           </div>
-        )}
+        </div>
       </div>
     </div>
   );

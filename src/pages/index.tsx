@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="h-screen font-[family-name:var(--font-geist-sans)]">
       <div id="bg"></div>
-      <div id="header" className="flex justify-between p-6 bg-white text-black z-0">
+      <div id="header" className="flex justify-between p-10 px-16 text-white z-0">
         <a className="relative mr-5 flex-none text-4xl font-bold top-1" href="/">Cardano SafeTx</a>
         <div className="flex gap-5 place-self-end text-xl">
           <a className="p-3">About</a>
@@ -26,7 +26,6 @@ export default function Home() {
             Everything related to Cardano, transfers, NFTs, all in one website and very easy to use! To get started, it's as simple
             as logging in or signing up!
           </p>
-          <button id="b" className="px-2 text-white font-bold rounded-xl w-36 h-14 text-xl" onClick={route_login}>Get Started</button>
         </div>
         <div className="mx-5 h-[32rem] w-[32rem] text-wrap">
           <Image src="/cardano.webp" alt="cardano" width={512} height={512} className="relative rounded-full border-8 inset-0 left-52" />
