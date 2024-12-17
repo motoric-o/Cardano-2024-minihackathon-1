@@ -16,7 +16,7 @@
   }
 }
 
-@keyframes onScroll {
+@keyframes onScrollBg {
   from {
     filter: hue-rotate(0deg);
   }
@@ -26,13 +26,31 @@
   }
 }
 
+@keyframes onScroll {
+  0% {
+    scale: 0.7;
+  }
+
+  40% {
+    scale: 1;
+  }
+
+  75% {
+    scale: 1;
+  }
+
+  100% {
+    scale: 0.7;
+  }
+}
+
 @keyframes updown {
   from {
-    transform: translateY(1.5rem);
+    transform: translate(0, 0);
   }
 
   to {
-    transform: translateY(-1.5rem);
+    transform: translate(-1.5rem, 1.5rem);
   }
 }
 
@@ -66,16 +84,25 @@ body {
   height: 100%;
   width: 100%;
   z-index: -10;
-  animation: onScroll linear;
+  animation: onScrollBg linear;
   animation-timeline: scroll();
   animation-range: entry 25% exit;
 }
 
-#home_text {
-  
+#scroll {
+  animation: onScroll linear;
+  animation-timeline: view();
+  animation-range: entry 0% exit;
 }
 
 #anim-img {
   transform: translateY(-1.5rem);
-  animation: updown 2s ease-in-out alternate-reverse infinite;
+  animation: updown 2s ease-in-out alternate infinite;
+  rotate: -25deg;
+}
+
+#anim-img1 {
+  transform: translateY(-1.5rem);
+  animation: updown 3s ease-in-out alternate-reverse infinite;
+  rotate: 15deg;
 }
