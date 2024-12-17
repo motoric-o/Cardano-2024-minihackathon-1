@@ -1,3 +1,4 @@
+
 /* eslint-disable react-hooks/exhaustive-deps */
 
 // Dependencies / modules yang digunakan
@@ -158,7 +159,7 @@ export default function Login() {
       </div>
 
       <div id="container1" className="absolute mx-auto inset-0 px-28 top-1/4 w-11/12 h-[48rem] grid grid-cols-2">
-        <div className="flex-row pt-40">
+        <div className="flex-row pt-48">
           <div className="text-7xl text-white font-black mb-3"> Get Started!</div>
           <div className="pl-1 text-lg text-white">Simply connect your wallet to get started!</div>
         </div>

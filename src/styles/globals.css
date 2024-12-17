@@ -26,6 +26,16 @@
   }
 }
 
+@keyframes updown {
+  from {
+    transform: translateY(1.5rem);
+  }
+
+  to {
+    transform: translateY(-1.5rem);
+  }
+}
+
 body {
   background: var(--foreground-rgb);
   background-repeat: no-repeat;
@@ -46,7 +56,7 @@ body {
 }
 
 #b:hover {
-  background-color: #0077ff;
+  background-color: #9900ff;
   scale: 110%;
 }
 
@@ -59,4 +69,13 @@ body {
   animation: onScroll linear;
   animation-timeline: scroll();
   animation-range: entry 25% exit;
+}
+
+#home_text {
+  
+}
+
+#anim-img {
+  transform: translateY(-1.5rem);
+  animation: updown 2s ease-in-out alternate-reverse infinite;
 }
