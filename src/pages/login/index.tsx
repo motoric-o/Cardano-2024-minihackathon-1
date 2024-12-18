@@ -27,8 +27,12 @@ export default function Login() {
   useEffect(() => {
     clearStates();
     // Jika Cardano Wallet berhasil terhubung periksa credential NFT
+    const element = document.getElementById("c_expand");
     if (connected) {
       checkNftCredentials();
+      element?.classList.toggle("expanded");
+    } else {
+      element?.classList.toggle("expanded");
     }
   }, [connected]);
 
@@ -154,17 +158,17 @@ export default function Login() {
         <a className="relative mr-5 flex-none text-4xl font-bold top-1" href="/">Cardano SafeTx</a>
         <div className="flex gap-5 place-self-end text-xl">
           <a className="p-3">About</a>
-          <button id="b" className="relative text-white font-bold rounded-xl w-32 h-10 top-[0.4rem]" onClick={route_login}>Log In</button>
+          <button className="transition bg-[#00aaff] ease-in-out duration-500 hover:bg-[#9900ff] hover:scale-110 relative text-white font-bold rounded-xl w-32 h-10 top-[0.4rem]" onClick={route_login}>Log In</button>
         </div>
       </div>
 
-      <div id="container1" className="absolute mx-auto inset-0 px-28 top-1/4 w-11/12 h-[48rem] grid grid-cols-2">
-        <div className="flex-row pt-48">
+      <div id="container1" className="absolute mx-auto inset-0 px-28 top-[25rem] w-11/12 max-h-[20rem] grid grid-cols-2">
+        <div className="flex-row mt-9">
           <div className="text-7xl text-white font-black mb-3"> Get Started!</div>
           <div className="pl-1 text-lg text-white">Simply connect your wallet to get started!</div>
         </div>
-        <div className="pt-32">
-          <div className="bg-white flex-col place-self-center w-3/5 h-auto rounded-xl p-4">
+        <div className="">
+          <div id="c_expand" className="bg-white flex-col place-self-center w-3/5 rounded-xl p-4">
             {connected ? (
               <p className="text-center h-20 text-2xl font-black text-green-500">
                 Wallet connected!
@@ -199,8 +203,7 @@ export default function Login() {
                   <div key={index} className="flex justify-center items-center">
                     <button
                       type="button"
-                      id="b"
-                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded-xl w-64 h-10 mb-4"
+                      className="transition bg-[#00aaff] ease-in-out duration-500 hover:bg-[#9900ff] hover:scale-110 text-white font-bold rounded-xl w-3/4 h-10 text-lg mb-2"
                       onClick={() => loginHandler2(asset.assetName)}
                     >
                       Login as{" "}

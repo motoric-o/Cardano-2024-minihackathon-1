@@ -66,18 +66,6 @@ body {
   }
 }
 
-#b {
-  background-color: #00aaff;
-  transition: all;
-  transform-style: ease-in-out;
-  transition-duration: 500ms;
-}
-
-#b:hover {
-  background-color: #9900ff;
-  scale: 110%;
-}
-
 #bg {
   position: fixed;
   background: linear-gradient(45deg, rgba(184,0,255,1), rgba(0, 140, 255,1) 100%);
@@ -105,4 +93,15 @@ body {
   transform: translateY(-1.5rem);
   animation: updown 3s ease-in-out alternate-reverse infinite;
   rotate: 15deg;
+}
+
+#c_expand {
+  max-height: 23rem;
+  height: 11rem;
+  transition: height 0.5s ease-in-out;
+  overflow: hidden;
+
+  &.expanded {
+    height: 23rem;
+  }
 }

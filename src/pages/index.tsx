@@ -8,14 +8,14 @@ export default function Home() {
     router.push('/login');
   }
 
-  
+
   // window.addEventListener("load", () => {
   //   for (let i=0; i < 4; i++) {
   //     const element = document.getElementById('home_transition'+i)
   //     element?.classList.add("-translate-y-5");
   //   }
   // });
-  
+
   return (
     <div className="h-screen font-[family-name:var(--font-geist-sans)]">
       <div id="bg"></div>
@@ -24,7 +24,7 @@ export default function Home() {
         <div className="flex gap-5 place-self-end text-xl">
           <a className="p-3" href="">About</a>
           <a className="p-3" href="">Support</a>
-          <button id="b" className="relative text-white font-bold rounded-xl w-32 h-10 top-[0.4rem]" onClick={route_login}>Log In</button>
+          <button className="transition bg-[#00aaff] ease-in-out duration-500 hover:bg-[#9900ff] hover:scale-110 relative text-white font-bold rounded-xl w-32 h-10 top-[0.4rem]" onClick={route_login}>Log In</button>
         </div>
       </div>
       <div className="absolute flex inset-0 top-1/3 left-[10%]">
@@ -54,7 +54,11 @@ export default function Home() {
           </p>
         </div>
       </div>
-      <div className="absolute inset-0 top-[120rem]">
+      <div id="scroll" className="absolute flex-row inset-0 top-[150rem] justify-center justify-items-center w-full">
+        <div className="text-8xl text-white font-black mb-8"> What are you waiting for?</div>
+        <button className="transition bg-[#00aaff] ease-in-out duration-500 hover:bg-[#9900ff] hover:scale-110 relative text-white font-bold text-3xl rounded-xl w-72 h-16 top-[0.4rem]" onClick={route_login}>Get Started!</button>
+      </div>
+      <div className="absolute inset-0 top-[200rem] justify-center justify-content-center w-full">
         <p className="text-transparent">a</p>
       </div>
     </div>
