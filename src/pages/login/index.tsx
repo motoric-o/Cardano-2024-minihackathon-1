@@ -5,12 +5,14 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { CardanoWallet, useWallet } from "@meshsdk/react";
+import { BlockfrostProvider } from "@meshsdk/core";
 
 // Environment variable berisi nama NFT dalam format Hex dan policyID
 const token1 = process.env.NEXT_PUBLIC_TOKEN_1;
 const token2 = process.env.NEXT_PUBLIC_TOKEN_2;
 const token3 = process.env.NEXT_PUBLIC_TOKEN_3;
 const policyID = process.env.NEXT_PUBLIC_POLICY_ID;
+const BLOCKFROST_API_KEY=process.env.BLOCKFROST_API_KEY;
 
 export default function Login() {
   const router = useRouter();
@@ -30,9 +32,9 @@ export default function Login() {
     const element = document.getElementById("c_expand");
     if (connected) {
       checkNftCredentials();
-      element?.classList.toggle("expanded");
+      element?.classList.add("expanded");
     } else {
-      element?.classList.toggle("expanded");
+      element?.classList.remove("expanded");
     }
   }, [connected]);
 
@@ -155,7 +157,7 @@ export default function Login() {
     <div className="h-screen font-[family-name:var(--font-geist-sans)]">
       <div id="bg"></div>
       <div id="header" className="flex justify-between p-10 px-16 text-white z-0">
-        <a className="relative mr-5 flex-none text-4xl font-bold top-1" href="/">Cardano SafeTx</a>
+        <a className="relative mr-5 flex-none text-4xl font-bold top-1" href="/">Cardano WebTx</a>
         <div className="flex gap-5 place-self-end text-xl">
           <a className="p-3">About</a>
           <button className="transition bg-[#00aaff] ease-in-out duration-500 hover:bg-[#9900ff] hover:scale-110 relative text-white font-bold rounded-xl w-32 h-10 top-[0.4rem]" onClick={route_login}>Log In</button>
