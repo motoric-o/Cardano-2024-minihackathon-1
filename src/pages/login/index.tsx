@@ -29,8 +29,8 @@ export default function Login() {
   useEffect(() => {
     clearStates();
     // Jika Cardano Wallet berhasil terhubung periksa credential NFT
-    const element = document.getElementById("c_expand");
-    if (connected) {
+    const element = document.getElementById("container_flex");
+    if (connected && buttonState) {
       checkNftCredentials();
       element?.classList.add("expanded");
     } else {
@@ -155,22 +155,13 @@ export default function Login() {
   // User Interface
   return (
     <div className="h-screen font-[family-name:var(--font-geist-sans)]">
-      <div id="bg"></div>
-      <div id="header" className="flex justify-between p-10 px-16 text-white z-0">
-        <a className="relative mr-5 flex-none text-4xl font-bold top-1" href="/">Cardano WebTx</a>
-        <div className="flex gap-5 place-self-end text-xl">
-          <a className="p-3">About</a>
-          <button className="transition bg-[#00aaff] ease-in-out duration-500 hover:bg-[#9900ff] hover:scale-110 relative text-white font-bold rounded-xl w-32 h-10 top-[0.4rem]" onClick={route_login}>Log In</button>
-        </div>
-      </div>
-
-      <div id="container1" className="absolute mx-auto inset-0 px-28 top-[25rem] w-11/12 max-h-[20rem] grid grid-cols-2">
-        <div className="flex-row mt-9">
+      <div id="container1" className="relative mx-auto w-11/12 max-h-[20rem] grid grid-cols-2">
+        <div className="relative flex-row top-72 left-32">
           <div className="text-7xl text-white font-black mb-3"> Get Started!</div>
           <div className="pl-1 text-lg text-white">Simply connect your wallet to get started!</div>
         </div>
         <div className="">
-          <div id="c_expand" className="bg-white flex-col place-self-center w-3/5 rounded-xl p-4">
+          <div id="container_flex" className="relative bg-white flex-col place-self-center w-3/5 rounded-xl p-4">
             {connected ? (
               <p className="text-center h-20 text-2xl font-black text-green-500">
                 Wallet connected!

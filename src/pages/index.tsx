@@ -18,15 +18,6 @@ export default function Home() {
 
   return (
     <div className="h-screen font-[family-name:var(--font-geist-sans)]">
-      <div id="bg"></div>
-      <div id="header" className="flex justify-between p-10 px-16 text-white z-20">
-        <a className="relative mr-5 flex-none text-4xl font-bold top-1" href="/">Cardano Web3Tx</a>
-        <div className="flex gap-5 place-self-end text-xl">
-          <a className="p-3" href="">About</a>
-          <a className="p-3" href="">Support</a>
-          <button className="transition bg-[#00aaff] ease-in-out duration-500 hover:bg-[#9900ff] hover:scale-110 relative text-white font-bold rounded-xl w-32 h-10 top-[0.4rem]" onClick={route_login}>Log In</button>
-        </div>
-      </div>
       <div className="absolute flex inset-0 top-1/3 left-[10%]">
         <div id="scroll" className="mx-5 h-72 w-[45rem] text-wrap mt-36">
           <p data-name="animate" className="text-8xl font-bold text-white mb-8">Cardano Web3Tx</p>

@@ -95,13 +95,15 @@ body {
   rotate: 15deg;
 }
 
-#c_expand {
+#container_flex {
+  top: 16.5rem;
   max-height: 23rem;
   height: 11rem;
-  transition: height 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   overflow: hidden;
 
   &.expanded {
+    top: 10rem;
     height: 23rem;
   }
 }
