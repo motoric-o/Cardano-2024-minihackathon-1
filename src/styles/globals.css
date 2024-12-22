@@ -107,3 +107,15 @@ body {
     height: 23rem;
   }
 }
+
+#profile {
+  transition: width 0.75s ease-in-out;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-top: -0.5rem;
+
+  &:hover {
+    width: 12rem;
+    content: var(--address);
+  }
+}

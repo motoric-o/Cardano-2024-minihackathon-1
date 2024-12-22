@@ -5,14 +5,13 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { CardanoWallet, useWallet } from "@meshsdk/react";
-import { BlockfrostProvider } from "@meshsdk/core";
+import Link from "next/link";
 
 // Environment variable berisi nama NFT dalam format Hex dan policyID
 const token1 = process.env.NEXT_PUBLIC_TOKEN_1;
 const token2 = process.env.NEXT_PUBLIC_TOKEN_2;
 const token3 = process.env.NEXT_PUBLIC_TOKEN_3;
 const policyID = process.env.NEXT_PUBLIC_POLICY_ID;
-const BLOCKFROST_API_KEY=process.env.BLOCKFROST_API_KEY;
 
 export default function Login() {
   const router = useRouter();
@@ -24,17 +23,18 @@ export default function Login() {
   const [assetsList, setAssetsList] = useState([
     { assetName: "", fingerPrint: "", policyId: "", quantity: "", unit: "" },
   ]);
+  const membershipTypes = ["Silver", "Gold", "Platinum"];
 
   // Fungsi-fungsi di dalam useEffect akan selalu dieksekusi jika parameter connected terdapat perubahan
   useEffect(() => {
     clearStates();
     // Jika Cardano Wallet berhasil terhubung periksa credential NFT
-    const element = document.getElementById("container_flex");
+    const element: any = document.getElementById("container_flex");
     if (connected && buttonState) {
       checkNftCredentials();
-      element?.classList.add("expanded");
+      element.classList.add("expanded");
     } else {
-      element?.classList.remove("expanded");
+      element.classList.remove("expanded");
     }
   }, [connected]);
 
@@ -109,37 +109,12 @@ export default function Login() {
   }
 
   // Fungsi menangani login
-  function loginHandler1() {
+  function loginHandler() {
     try {
       if (!colorMessage) {
         return;
       } else {
-        const memberToken = assetsList[0].assetName;
-        if (memberToken === token1) {
-          router.push("/membership/silver");
-        } else if (memberToken === token2) {
-          router.push("/membership/gold");
-        } else if (memberToken === token3) {
-          router.push("/membership/platinum");
-        }
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      setMessage("Error when login process!");
-      setColorMessage(false);
-    }
-  }
-
-  // Fungsi menangani login
-  function loginHandler2(assetName: string) {
-    try {
-      const memberToken = assetName;
-      if (memberToken === token1) {
-        router.push("/membership/silver");
-      } else if (memberToken === token2) {
-        router.push("/membership/gold");
-      } else {
-        router.push("/membership/platinum");
+        router.push("/dashboard");
       }
     } catch (error) {
       console.error("Error:", error);
@@ -194,10 +169,10 @@ export default function Login() {
 
                 {assetsList.map((asset, index) => (
                   <div key={index} className="flex justify-center items-center">
-                    <button
+                    {/* <button
                       type="button"
                       className="transition bg-[#00aaff] ease-in-out duration-500 hover:bg-[#9900ff] hover:scale-110 text-white font-bold rounded-xl w-3/4 h-10 text-lg mb-2"
-                      onClick={() => loginHandler2(asset.assetName)}
+                      onClick={loginHandler}
                     >
                       Login as{" "}
                       {asset.assetName === token1
@@ -205,7 +180,15 @@ export default function Login() {
                         : asset.assetName === token2
                           ? "Gold Member"
                           : "Platinum Member"}
-                    </button>
+                    </button> */}
+                    <Link href={{ pathname: '/dashboard', query: { membership: membershipTypes[index] } }} className="transition bg-[#00aaff] ease-in-out duration-500 hover:bg-[#9900ff] hover:scale-110 text-white font-bold text-center pt-1 rounded-xl w-3/4 h-10 text-lg mb-2">
+                      Login as{" "}
+                      {asset.assetName === token2
+                        ? "Silver Member"
+                        : asset.assetName === token1
+                          ? "Gold Member"
+                          : "Platinum Member"}
+                    </Link>
                   </div>
                 ))}
               </div>
